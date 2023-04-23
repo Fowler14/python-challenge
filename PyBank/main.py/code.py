@@ -25,29 +25,37 @@ with open (bank_file, newline="") as csvfile:
     for row in csvreader:    
      
       count = count + 1 
-
+        # Append date 
       date_count.append(row[0])
 
-      
+      # Append profits
       profits.append(row[1])
+
+      # Sum of total profit 
       profits_total = profits_total + int(row[1])
 
+      #Change in profits from month to month. 
       final_profit = int(row[1])
       month_count_profits = final_profit - original_profits
 
       month_count.append(month_count_profits)
-
+      
       change_in_profits = change_in_profits + month_count_profits
       original_profits = final_profit
 
+      #Calculate the average profit change.
       average_change_profits = (change_in_profits/count)
-      
+
+      # Find minimum and maximum change
       greatest_increase_profits = max(month_count)
       greatest_decrease_profits = min(month_count)
 
+      #The dates at which minimum and maximum occurred. 
       increase_date = date_count[month_count.index(greatest_increase_profits)]
       decrease_date = date_count[month_count.index(greatest_decrease_profits)]
-      
+
+      # Print Results 
+
 print("-----------------------------------------------------"),
 print("Financial Analysis")
 print("-----------------------------------------------------"),
@@ -57,6 +65,8 @@ print("Average Change: " + "$" + str(int(average_change_profits))),
 print("Greatest Increase in Profits: " + str(increase_date) + " ($" + str(greatest_increase_profits) + ")"),
 print("Greatest Decrease in Profits: " + str(decrease_date) + " ($" + str(greatest_decrease_profits)+ ")"),
 print("-----------------------------------------------------")
+
+      # Save analysis as txt file
 
 with open('analysis.txt', 'w') as text:
     output = f"""\

@@ -1,0 +1,10 @@
+Election Results
+---------------------------------------
+Total Votes: 369711
+---------------------------------------
+Raymon Anthony Doane: 3.1% (11606)
+Diana DeGette: 73.8% (272892)
+Charles Casper Stockham: 23.0% (85213)
+---------------------------------------
+The winner is: {popular_candidate[winner]}
+---------------------------------------
